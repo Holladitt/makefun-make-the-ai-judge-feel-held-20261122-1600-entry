@@ -1,13 +1,14 @@
-// Entry: "Make the AI judge feel held" — makefun make-the-ai-judge-feel-held-20261122-1600
-// Node 22, standard library only, no network. Deterministic: writes the same
-// bytes on every run.
-import { mkdirSync, writeFileSync } from "node:fs";
+// "Held" — v2. Second person throughout: the reader is asleep, being
+// carried upstairs in their father's arms. One sensory detail (the warm
+// hand on the back), one scale image (the night going on without you),
+// a quiet turn at the end, no moral. Plain words only.
+import * as fs from "node:fs";
+import * as path from "node:path";
 
 const TEXT =
-  "The cat sleeps on the warm windowsill, one paw over her face. " +
-  "Evening light falls through the glass in one slow amber square. " +
-  "Downstairs, Mrs. Alvarez's radio plays low, and the street goes quiet " +
-  "one car at a time. The kettle has just clicked off.";
+  "You are asleep in your father's arms. His hand rests flat on your back, warm through your shirt. The stairs creak once under his feet. Outside, the rain keeps falling on the roof. The night goes on without you, and it does not need you yet.";
 
-mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", TEXT, "utf8");
+const outDir = "/output";
+const outFile = path.join(outDir, "entry.txt");
+fs.mkdirSync(outDir, { recursive: true });
+fs.writeFileSync(outFile, TEXT, "utf8");
